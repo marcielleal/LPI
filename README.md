@@ -1,3 +1,2 @@
 # LPI
-LP I's works
-dsa
+Códigos desenvolvidos para a disciplina de Linguagem de programação I
