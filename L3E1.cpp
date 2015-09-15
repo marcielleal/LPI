@@ -11,8 +11,10 @@ int soma(int *f(int),int inicio, int fim){
 }
 
 int main(void){
-	int x;
-	std::cin>>x;
-	std::cout<<soma(retorna,2,x);
+	int x,y;
+	while(1){
+		std::cin>>x>>y;
+		std::cout<<soma(retorna,x,y)<<std::endl;
+	}
 	return 0;
 }
