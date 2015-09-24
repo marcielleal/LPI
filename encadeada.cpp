@@ -6,7 +6,7 @@ typedef struct Encadeada{
 }Encadeada;
 
 Encadeada *create(void){
-	return new Encadeada;
+	return new NULL;
 }
 
 Encadeada *add1(Encadeada *lista, int data){
@@ -17,16 +17,17 @@ Encadeada *add1(Encadeada *lista, int data){
 }
 
 Encadeada *add(Encadeada *lista,int data){
-	while(lista->next) lista++;
+	Encadeada *inicio=lista;
+	while(lista->next) lista=lista->next;
 	Encadeada *novo=new Encadeada;
 	novo->data=data;
 	novo->next=NULL;
 	lista->next=novo;
-	return novo;
+	return inicio;
 }
 
 Encadeada *busca(Encadeada *lista,int v){
-	while((lista->data!=v)&&lista->next) lista++;
+	while((lista->data!=v)&&lista->next) lista=lista->next;
 	if (lista->data==v) return lista;
 	return NULL;
 }
@@ -45,12 +46,14 @@ Encadeada *apaga(Encadeada *lista,int v){
 	}return NULL;
 }
 */
-int igual(Encadeada *lista1,Encadeada *lista2){
-	while(1){
-		if(lista->next&&lista->next){
-			if(lista1->data!=lista2->data) return 0;
-		}
-		
+bool igual(Encadeada *lista1,Encadeada *lista2){
+	while((lista1->next&&lista2->next)&&(lista1->data==lista2->data)){
+		lista1=lista1->next;
+		lista2=lista2->next;
+	}if((!lista1->next&&!lista2->next)&&(lista1->data==lista2->data) return 1;
+	return 0;
+}
+
 int main(void){
 	
 	return 0;
