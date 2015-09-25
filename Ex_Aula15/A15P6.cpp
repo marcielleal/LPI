@@ -1,13 +1,5 @@
-/*Escreva um programa que monte uma lista de números inteiros positivos. Para
-cada novo número inteiro digitado pelo usuário no teclado, o programa deve alocar uma
-nova variável no heap e inserí-la no final da lista composta pelos números já digitados.
-Quando o usuário digitar um número menor ou igual a 0 (zero), o programa deve imprimir
-todos os números digitados, na ordem em que eles foram alimentados pelo usuário. Utilizar
-o tipo de dados struct Item definido abaixo:
-Struct Item {
-int valor;
-struct Item *proximo;
-};*/
+/*Modificar o exercício 4 para montar a lista na ordem crescente dos números informados
+pelo usuário.*/
 
 #include <iostream>
 struct Item{
@@ -22,7 +14,15 @@ struct Item *add(struct Item* lista,int valor){
 	lista->proximo=novo;
 	return novo;
 }
-
+void selectionEncadeada(struct Item *inicio,struct Item *fim){
+	struct Item *i,*j;
+	for(i=inicio;i<n-1;i=i->proximo){
+		for(j=inicio->proximo;j<n;j=j->proximo){
+			if(i->valor>j->valor) 
+				
+		}
+	}
+}
 void imprime(struct Item *inicio){
 	while(inicio->proximo){
 		std::cout<<inicio->valor<<" ";
