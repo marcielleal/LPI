@@ -64,3 +64,20 @@ void mergeSort(int v[],int n){
 	}
 }
 //----------------------
+void quick_aux(int v[],int e,int d){
+	int i,j;
+	int pivo=v[d];
+	for(j=e,i=e-1;j<=d;j++){
+		if(v[j]<pivo)
+			std::swap(v[++i],v[j]);
+	}std::swap(v[d],v[i+1]);
+}
+
+void quick(int v[],int e,int d){
+	if(e<d){
+		int a=d/2;
+		quick(v,e,a);
+		quick(v,a+1,d);
+		quick_aux(v,e,d);
+	}
+}
