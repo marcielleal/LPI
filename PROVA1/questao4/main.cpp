@@ -8,10 +8,7 @@ int main(void){
 	for(i=0;i<n;i++)
 		std::cin>>S[i];
 	
-	int *votos=new int[n];
-	int *mat=new int[n];
-	
-	selectionSort(S,n);
+		
 	contagem(S,n,votos,mat);
 	imprime(S,n);imprime(votos,n);imprime(mat,n);
 	imprimeLista(votos,mat,7);
