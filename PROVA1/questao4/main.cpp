@@ -8,10 +8,6 @@ int main(void){
 	for(i=0;i<n;i++)
 		std::cin>>S[i];
 	
-		
-	contagem(S,n,votos,mat);
-	imprime(S,n);imprime(votos,n);imprime(mat,n);
-	imprimeLista(votos,mat,7);
 	
 	return 0;
 }

@@ -6,8 +6,9 @@ void maxAux(int v[],int n,int &res){
 	if(v[0]>=v[m]) aux=v[0];
 	else aux=v[m];
 
-	if (aux>res) res=aux;
+	if(aux>res) res=aux;
 }
+
 void max(int v[],int n,int &res){
 	int m;
 	if(n>1){

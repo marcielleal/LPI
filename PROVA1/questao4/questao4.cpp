@@ -1,72 +1,20 @@
 #include "questao4.hpp"
-/*Ordena a sequencia 
-void selectionSort(int v[],int n){
-	int i,j;
-	for(i=0;i<n-1;i++){
-		for(j=i+1;j<n;j++){
-			if(v[i]>v[j])
-				std::swap(v[i],v[j]);
-		}
-	}
-}
-
-void imprime(int v[],int n){
-	int i;
-	for(i=0;i<n;i++)
-		std::cout<<v[i]<<" ";
-	std::cout<<std::endl;
-}
-
-void contagem(int v[],int n,int votos[],int mat[]){
-	int i=0,j,k=0,l=0;
-	for(j=1;i<n;j++){
-		if(v[i]!=v[j]){
-			votos[k]=l;
-			mat[k]=v[i];
-			i=j; k++; l=0;
-		}
-		l++;
-	}
-}
-Retorna o indice do maior item do vetor
-int procuraMaior(int v[],int n){
-	int i,maior=-1,im;
-	for(i=0;i<n;i++){
-		if(v[i]>maior){ 
-			maior=v[i];
-			im=i;
-		}
-	}
-	return im;
-}
-
-
-void imprimeLista(int votos[],int mat[],int n){
-	int i,a;
-	for(i=0;i<n;i++){
-		a=procuraMaior(votos,n);
-		if(mat[a]!=0){
-			std::cout<<"Aluno de matrícula: "<<mat[a]<<" Pontuação: "<<votos[a]<<std::endl;
-			votos[a]=-1;
-		}
-	}
-}
-*/
-void DictAluno::_copia(int dest[],int origem[],int n){
+template <typename tipo>
+void copia(tipo dest[],tipo origem[],int n){
 	int i;
 	for(i=0;i<n;i++)
 		dest[i]=origem[i];
 }
-void DictAluno::merge(int v[],int n){
+
+void DictAluno::_merge(Aluno v[],int n){
 	int m=n/2;
 	int i,j,k;
-	int *w;
 	
-	w=new int[n];
-	if(w==NULL) exit(1);
+	Aluno *w=new Aluno[n];;
+	if(w==NULL) return;
 	
 	for(i=0,j=m,k=0;i<m&&j<n;){
-		if(v[i]<=v[j]) w[k++]=v[i++];
+		if(v[i].votos<=v[j].votos) w[k++]=v[i++];
 		else w[k++]=v[j++];
 	}
 	
@@ -77,14 +25,14 @@ void DictAluno::merge(int v[],int n){
 	
 	delete w;
 }
-void mergeSort(int v[],int n){
-int m;
-if(n>1){
-m=n/2;
-mergeSort(v,m);
-mergeSort(v+m,n-m);
-merge(v,n);
-}
+void DictAluno::_mergeSort(Aluno v[],int n){
+	int m;
+	if(n>1){
+		m=n/2;
+		_mergeSort(v,m);
+		_mergeSort(v+m,n-m);
+		_merge(v,n);
+	}
 }
 int DictAluno::_search(int _key) const{
 	for(int i=0;i<tamanho;i++)
@@ -100,11 +48,11 @@ bool DictAluno::inserir(int _mat){
 	
 	int aux=this->_search(_mat);
 	if(aux>-1)							//Se achou, adiciona um voto
-		pt_alunos[aux].votos++;
+		this->pt_alunos[aux].votos++;
 	else{
 		this->pt_alunos[tamanho].matricula=_mat;
 		this->pt_alunos[tamanho].votos++;
-		tamanho++;
+		this->tamanho++;
 	}
 	return true;
 }

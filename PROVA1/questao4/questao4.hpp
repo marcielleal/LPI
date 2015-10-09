@@ -1,15 +1,8 @@
 #ifndef QUESTAO4_HPP
 #define QUESTAO4_HPP
 #include <iostream>
-/*
-void selectionSort(int v[],int n);
-void imprime(int v[],int n);
 
-void contagem(int v[],int n,int votos[],int mat[]);
-
-Retorna o indice do maior item do vetor
-int procuraMaior(int v[],int n);
-void imprimeLista(int votos[],int mat[],int n);*/
+void copia(int dest[],int origem[],int n);
 
 class DictAluno{
 	protected:
@@ -22,15 +15,14 @@ class DictAluno{
 		int capacidade;
 
 		int _search(int _key) const;
-		bool _duplica();
-		void _merge(void);
-		void _mergeSort(void);
-		void _copia(int dest[],int origem[],int n);
+		bool _duplica(void);
+		void _merge(Aluno v[],int n);
+		void _mergeSort(Aluno v[],int n);
 	public:
 		DictAluno(int _MaxSz=50){pt_alunos=new Aluno[_MaxSz]; if(pt_alunos){this->capacidade=_MaxSz;this->tamanho=0;}};
 		~DictAluno(){delete [] pt_alunos;};
 		bool inserir(int _mat);
-		void ordenar();
+		void ordenar(void);
 
 		inline friend
 		std::ostream &operator <<(std::ostream &_os,const DictAluno &_obj){
