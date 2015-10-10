@@ -3,20 +3,20 @@
 int main(void){
 	int n,i;
 	std::cin>>n;
-	int *S=new int[n];					//Sequencia S de matriculas
-	
-	for(i=0;i<n;i++){
-		S[i]=i;					//Preenchendo a sequencia
-		std::cout<<S[i];
-	}	
-	S[i]=i;
-	S[i]=i;
-	DictAluno *novo=new DictAluno(6);
+	int *S=new int[n];				//Sequencia S de matriculas
+
 	for(i=0;i<n;i++)
-		if(!novo->inserir(S[i])) std::cout<<"OLHA A MERDA"<<std::endl;
+        	std::cin>>S[i];				//Peenchendo sequencia
+        	
+	DictAluno *novo=new DictAluno;			//Criando um objeto lista de alunos
 	
-	novo->imprimeMelhor();
-	std::cout<<*novo<<std::endl;
+	for(i=0;i<n;i++)				//Preenchendo a lista de alunos
+		if(!novo->inserir(S[i])) 
+			std::cout<<"ERRO AO INSERIR O ELEMENTO"<<i<<"NA LISTA DE ALUNOS"<<std::endl;
+	
+
+	novo->imprimeMelhor();				//Imprime o aluno com mais votos
+	std::cout<<*novo<<std::endl;			//Imprime a lista de alunos e seus respectivos votos
 
 	return 0;
 }
