@@ -1,7 +1,7 @@
 #ifndef QUESTAO4_HPP
 #define QUESTAO4_HPP
 #include <iostream>
-//Mover construtor e destrutor
+
 void copia(int dest[],int origem[],int n);
 
 class DictAluno{
