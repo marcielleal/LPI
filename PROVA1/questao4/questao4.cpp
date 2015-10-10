@@ -68,9 +68,11 @@ bool DictAluno::inserir(int _mat){
 	return true;
 }
 bool DictAluno::_duplica(){				//Duplicar o vetor caso tenha enchido
-	Aluno *aux=pt_alunos;
+	Aluno *aux=this->pt_alunos;
 	Aluno *novo=new Aluno[this->capacidade*2];
 	if(!novo) return false;
+	for(int i=0;i<this->capacidade;i++)
+        	novo[i]=aux[i];
 	pt_alunos=novo;
 	delete [] aux;
 	return true;
