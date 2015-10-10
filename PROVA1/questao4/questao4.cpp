@@ -1,9 +1,20 @@
+#include <iostream>
 #include "questao4.hpp"
 template <typename tipo>
 void copia(tipo dest[],tipo origem[],int n){
 	int i;
 	for(i=0;i<n;i++)
 		dest[i]=origem[i];
+}
+DictAluno::DictAluno(int _MaxSz){
+	pt_alunos=new Aluno[_MaxSz]; 
+	if(pt_alunos){
+		this->capacidade=_MaxSz;
+		this->tamanho=0;
+	}
+}
+DictAluno::~DictAluno(){
+	delete [] pt_alunos;
 }
 
 void DictAluno::_merge(Aluno v[],int n){
@@ -14,7 +25,7 @@ void DictAluno::_merge(Aluno v[],int n){
 	if(w==NULL) return;
 	
 	for(i=0,j=m,k=0;i<m&&j<n;){
-		if(v[i].votos<=v[j].votos) w[k++]=v[i++];
+		if(v[i].votos>=v[j].votos) w[k++]=v[i++];
 		else w[k++]=v[j++];
 	}
 	
@@ -67,4 +78,17 @@ bool DictAluno::_duplica(){				//Duplicar o vetor caso tenha enchido
 
 void DictAluno::ordenar(){
 	this->_mergeSort(this->pt_alunos,this->tamanho);
+}
+void DictAluno::imprimeMelhor(void){
+	this->ordenar();
+	if(pt_alunos[0].votos==pt_alunos[1].votos){
+		std::cout<<"Ocorreu empate!\n";
+		std::cout<<"Os vencedores são: [";
+		for(int i=0;pt_alunos[0].votos==pt_alunos[i].votos;i++)
+			std::cout<<" {Aluno: "<<pt_alunos[i].matricula
+				<<" Votos: "<<pt_alunos[i].votos<<"}";
+		std::cout<<"]"<<std::endl<<std::endl;
+	}else 
+		std::cout<<"O vencedor é: {Aluno: "<<pt_alunos[0].matricula
+				<<" Votos: "<<pt_alunos[0].votos<<"}"<<std::endl<<std::endl;
 }
