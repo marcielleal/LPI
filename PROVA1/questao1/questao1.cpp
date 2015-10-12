@@ -9,15 +9,15 @@ int buscaSequencialR(tipo k,tipo v[],int n){
 }
 
 template <typename tipo>
-int buscaBinariaRAux(tipo num,tipo v[],int e,int d){
+int buscaBinariaAux(tipo num,tipo v[],int e,int d){
 	if(e<d-1){
 		int m=(e+d)/2;
-		if(v[m]>num) return buscaBinariaR2(num,v,e,m);
-		else if(v[m]<num) return buscaBinariaR2(num,v,m,d);
+                if(v[m]>num) return buscaBinariaAux(num,v,e,m);
+                else if(v[m]<num) return buscaBinariaAux(num,v,m,d);
 		else return m;
 	}return -1;
 }
 template <typename tipo>
 int buscaBinariaR(tipo num,tipo *v,int tamanho){
-	return buscaBinariaRAux(num,v,-1,tamanho);
+        return buscaBinariaAux(num,v,-1,tamanho);
 }

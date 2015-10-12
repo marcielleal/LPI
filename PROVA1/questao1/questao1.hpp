@@ -6,7 +6,7 @@ template <typename tipo>
 int buscaSequencialR(tipo k,tipo v[],int n);
 
 template <typename tipo>
-int buscaBinariaR2(tipo num,tipo v[],int e,int d);
+int buscaBinariaAux(tipo num,tipo v[],int e,int d);
 template <typename tipo>
 int buscaBinariaR(tipo num,tipo *v,int tamanho);
 
