@@ -32,7 +32,7 @@ void DictAluno::_merge(Aluno v[],int n){
 	if(i<m) while(i<m) w[k++]=v[i++];
 	if(j<n) while(j<n) w[k++]=v[j++];
 
-	copia(v,w,n);
+        copia(v,w,n);
 
 	delete w;
 }

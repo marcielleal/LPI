@@ -20,5 +20,6 @@ void max(int v[],int n,int &res){
 }
 //Considerando ini e fim o primeiro e o ultimo indice do vetor
 void maximo(int v[],int ini,int fim,int *resultado){
-	max(v,fim+1,*resultado);
+        *resultado=v[0];
+        max(v,fim+1,*resultado);
 }

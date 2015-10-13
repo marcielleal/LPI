@@ -1,5 +1,5 @@
 #include <iostream>
-#include "questao1.hpp"
+#include "questao1.cpp"
 
 int main(void){
 	int v[]={10,20,40,56,80};

@@ -1,5 +1,4 @@
 #include "questao1.hpp"
-
 /*Todas sao recursao de cauda */
 template <typename tipo>
 int buscaSequencialR(tipo k,tipo v[],int n){

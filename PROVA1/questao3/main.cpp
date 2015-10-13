@@ -9,8 +9,9 @@ int main(void){
 	
 	for(i=0;i<n;i++)
 		std::cin>>S[i];
-	
+
 	std::cout<<(verificaRepeticao(S,n)? "EXISTE PELO MENOS DOIS ELEMENTOS IGUAIS":"NÃO EXISTE ELEMENTOS IGUAIS");
-	
+        for(i=0;i<n;i++)
+                std::cout<<S[i]<<" ";
 	return 0;
 }
